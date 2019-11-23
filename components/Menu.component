@@ -5,8 +5,9 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="?page=questionForm">Page 1</a></li>
-        <li><a href="?page=questionList">Page 2</a></li>
+        <li><a href="?page=TestStress">Làm Bài Kiểm Tra</a></li>
+        <li><a href="?page=QuestionForm">Page 1</a></li>
+        <li><a href="?page=QuestionList">Page 2</a></li>
       </ul>
     </div>
 </nav>
