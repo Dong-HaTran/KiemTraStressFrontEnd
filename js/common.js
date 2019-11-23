@@ -1,25 +1,23 @@
-$( document ).ready(function() {
-    $.get('menu.html', function(data) {
-        $($('body').find('menu')).html(data)
-        }, 'text');
-    //get content
-    var template = getUrlParameter('page') + '.html';
-    $.get(template, function(data) {
-        $($('body').find('content')).html(data)
-        }, 'text');
-    });
-
-    var getUrlParameter = function getUrlParameter(sParam) {
-        var sPageURL = window.location.search.substring(1),
-            sURLVariables = sPageURL.split('&'),
-            sParameterName,
-            i;
-    
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-    
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-            }
-        }
+class CommonFunction {
+    static GetPageName(url) {
+        return window.location.search.split('?page=')[1] + '.html'
     };
+
+    static RenderPage(){
+        var template = CommonFunction.GetPageName('page');
+        $.get(template, function (data) {
+            $($('body').find('content')).html(data)
+        }, 'text');
+    }
+    
+    static RenderTagElement(tagName){
+        $.get(tagName + '.component', function (data) {
+            $($('body').find(tagName)).html(data)
+        }, 'text');
+    }
+}
+
+$(document).ready(function () {
+    CommonFunction.RenderPage();
+    CommonFunction.RenderTagElement('menu');
+});
