@@ -1,5 +1,7 @@
 class CommonFunction {
 
+    static URL_API = "http://localhost:64598/";
+
     static RenderPage() {
         var template = 'pages/' + window.location.search.split('?page=')[1] + '.html'
         $.get(template, function (data) {
@@ -13,8 +15,9 @@ class CommonFunction {
         }, 'text');
     }
 
-    static RenderData(dataSource, componentFormat, renderAt) {
-        $.get('components/' + componentFormat + '.component', function (data) {
+    static RenderData(dataSource, componentTemplate, renderAt) {
+        
+        $.get('components/' + componentTemplate + '.component', function (data) {
             
             if(dataSource.length==0) return;
 
@@ -25,7 +28,7 @@ class CommonFunction {
                 const item = dataSource[i];
                 var htmlComponent = data;
                 propertyNames.forEach(property => {
-                    htmlComponent = htmlComponent.replace('{{' + property +'}}',item[property])
+                    htmlComponent = htmlComponent.replace(new RegExp('{{' + property +'}}', 'g'),item[property])
                 });
                 
                 stringBuilding +=htmlComponent;

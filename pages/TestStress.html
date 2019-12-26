@@ -1,25 +1,78 @@
 <style>
-select option[disabled]:first-child {
-	display: none;
-}
-select option:first-child {
-	color: grey;
-}
+  select option[disabled]:first-child {
+    display: none;
+  }
+
+  select option:first-child {
+    color: grey;
+  }
+
+  .invalid {
+    color: red;
+  }
 </style>
 <div class="container">
-    <div>
-        <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>STT</th>
-                <th>Thể Loại</th>
-                <th>Câu Hỏi</th>
-                <th>Đánh giá</th>
-              </tr>
-            </thead>
-            <tbody id="tableQuestionTest">
-            </tbody>
-          </table>
+  <div class="card bg-primary">
+    <div class="card-header text-white">Thông tin người làm kiểm tra</div>
+    <div class="card-body bg-light">
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text font-weight-bold">Họ và Tên</span>
+        </div>
+        <input class="form-control col-md-6" type="text" id="PatientName">
+        <span class="col-md-2 font-weight-bold">
+          <input class="" type="radio" name="PatientSex" value="1"> Nam
+          <input class="" type="radio" name="PatientSex" value="0"> Nữ
+        </span>
+      </div>
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text font-weight-bold">Ngày sinh</span>
+        </div>
+        <input class="form-control col-md-2" type="text" id="PatientBOD">
+
+        <div class="input-group-prepend">
+          <span class="input-group-text font-weight-bold">Số điện thoại</span>
+        </div>
+        <input class="form-control col-md-2" type="text" id="PatientPhone">
+      </div>
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text font-weight-bold">Địa chỉ nhà</span>
+        </div>
+        <input class="form-control col-md-8" type="text" id="PatientAddress">
+      </div>
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text font-weight-bold">Lựa chọn bộ đề</span>
+        </div>
+        <select class="browser-default custom-select col-md-8" id='ddlQuestionSet' onchange="LoadQuestion()"></select>
+      </div>
+
     </div>
+  </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">STT</th>
+        <th class="text-center">Thể Loại</th>
+        <th class="text-center">Câu Hỏi</th>
+        <th class="text-center">Đánh giá</th>
+      </tr>
+    </thead>
+    <tbody id="tableQuestionTest">
+    </tbody>
+  </table>
 </div>
+
+<div class="text-center">
+  <button type="button" class="btn btn-primary" onclick="Save()">Đã làm xong</button>
+</div>
+
+</div>
+
 <script src="js/TestStress.js"></script>

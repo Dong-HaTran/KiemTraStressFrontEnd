@@ -1,14 +1,24 @@
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Kiểm Tra Stress</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="?page=TestStress">Làm Bài Kiểm Tra</a></li>
-        <li><a href="?page=QuestionForm">Page 1</a></li>
-        <li><a href="?page=QuestionList">Page 2</a></li>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a href="#" class="navbar-brand">Kiểm Tra Stress</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav">
+          <li class="nav-item" id="TestStress"> 
+              <a class="nav-link" href="?page=TestStress">Làm Bài Kiểm Tra</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?page=TestStress">Kết Quả Kiểm Tra</a>
+          </li>
       </ul>
-    </div>
+  </div>
 </nav>
-    
+<style>
+.nav-item a:hover {
+  background: #28a745;
+  opacity: 0.8;
+  border-radius: 5px;
+}
+
+</style>

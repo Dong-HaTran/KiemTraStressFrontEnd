@@ -1,14 +1,17 @@
 <tr>
     <td>{{Index}}</td>
     <td>{{QuestionType}}</td>
-    <td>{{QuestionDescription}}</td>
+    <td>{{Context}}</td>
     <td>
-        <select class="browser-default custom-select">
+        <select id='ddlAnswer_{{QuestionId}}' class="browser-default custom-select" 
+            onchange="$('#ddlAnswerRequired_{{QuestionId}}').hide()">
             <option value="" selected disabled>Vui lòng chọn câu trả lời</option>
             <option value="0">Không đúng với tôi chút nào cả</option>
             <option value="1">Đúng với tôi phần nào, hoặc thỉnh thoảng mới đúng</option>
             <option value="2">Đúng với tôi phần nhiều, hoặc phần lớn thời gian là đúng</option>
             <option value="3">Hoàn toàn đúng với tôi, hoặc hầu hết thời gian là đúng</option>
         </select>
+        <br/>
+        <span id = "AnswerRequired_{{QuestionId}}" class="invalid" style="display: none;" >Câu hỏi này chưa trả lời</span>
     </td>
 </tr>

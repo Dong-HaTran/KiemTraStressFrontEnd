@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "*.component": "html"
-    }
+    },
+    "indent_size": 8
 }
